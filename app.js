@@ -23,7 +23,7 @@ $(function () { // wrapper function
       $.ajax({
         type: 'GET',
         url: '',
-        cache: false,
+        cache: false
       }).then(function (data) {
         defer.resolve(data);
       }, function () {
@@ -48,6 +48,7 @@ $(function () { // wrapper function
 
     bindEvents: function () {
       this.$app.on('click', '.someButton', this.clickBtn.bind(this));
+      //this.$app.on('click', '.someButton', $.proxy(this.clickBtn, this));
     },
 
     clickBtn: function (e) {
