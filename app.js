@@ -1,12 +1,14 @@
 $(function () { // wrapper function
 
+  'use strict';
+
   var util = {
 
     getParams: function () {
       var url = location.href.replace(/\/$/, '');
       var url_parts = url.split('?');
       if (url_parts[1] === undefined) {
-        return false;
+        return {};
       }
       var params = url_parts[1].split('&');
       var params_obj = {};
@@ -19,7 +21,7 @@ $(function () { // wrapper function
     },
 
     ajaxGet: function () {
-      var defer = $.Deferred();
+      var defer = new $.Deferred();
       $.ajax({
         type: 'GET',
         url: '',
