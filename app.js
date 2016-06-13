@@ -1,23 +1,22 @@
+'use strict';
 $(function () { // wrapper function
-
-  'use strict';
 
   var util = {
 
     getParams: function () {
       var url = location.href.replace(/\/$/, '');
-      var url_parts = url.split('?');
-      if (url_parts[1] === undefined) {
+      var urlParts = url.split('?');
+      if (urlParts[1] === undefined) {
         return {};
       }
-      var params = url_parts[1].split('&');
-      var params_obj = {};
+      var params = urlParts[1].split('&');
+      var paramsObj = {};
       var i, pair;
       for (i = 0; i < params.length; i += 1) {
         pair = params[i].split('=');
-        params_obj[pair[0]] = pair[1];
+        paramsObj[pair[0]] = pair[1];
       }
-      return params_obj;
+      return paramsObj;
     },
 
     ajaxGet: function () {
